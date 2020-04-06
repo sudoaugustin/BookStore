@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "scss-compile": "node-sass -rw style/scss -o style/css",
+    "watch": "webpack --watch && npm run scss-compile "
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/Auguestin/BookStore/issues"
   },
-  "homepage": "https://github.com/Auguestin/BookStore#readme"
+  "homepage": "https://github.com/Auguestin/BookStore#readme",
+  "devDependencies": {
+    "node-sass": "^4.13.1",
+    "scss-compile": "^0.1.7",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
 }

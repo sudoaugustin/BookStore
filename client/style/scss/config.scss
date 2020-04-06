@@ -1,0 +1,24 @@
+@import 'normalize.css';
+$mobile: " (min-width: 300px) and (max-width: 768px)";
+$tablet: " (min-width: 768px) and (max-width: 992px)";
+$laptop: " (min-width: 992px) and (max-width: 1280px)";
+$desktop: " (min-width: 1280px)";
+$logoFont: "Roboto", sans-serif, serif;
+$font1: "Roboto", sans-serif, serif;
+$font2: "Google Sans", sans-serif, serif;
+$primary: #3366ff;
+$primary_tint: #6690ff;
+$primary_dark: #102693;
+$secondary: #49d9f8;
+$grey: #d6e4ff;
+$success: #00e676;
+$error: #ff4621;
+$info: #304ffe;
+$warning: #fcda1b;
+$clear: rgba(0, 0, 0, 0);
+
+//linear-gradient(90deg,#2cc7c0,#59d99d)
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

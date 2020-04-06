@@ -1,0 +1,8 @@
+{
+  "mongodbURL": "mongodb://localhost:27017/bookstore",
+  "mail": {
+    "user": "academey2020@gmail.com",
+    "pass": "wit2020taxiwala"
+  },
+  "secret_token": "1b671a64-40d5-491e-99b0-da01ff1f3341"
+}
