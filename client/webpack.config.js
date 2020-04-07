@@ -22,8 +22,8 @@ module.exports = {
   },
   mode: "development",
   entry: {
-    index: "./module/index.js",
-    config: "./module/config.js",
+    index: "./es6/index.js",
+    config: "./es6/config.js",
   },
   output: {
     path: path.resolve(__dirname, "src"),
