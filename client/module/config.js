@@ -1,1 +1,1 @@
-console.log("FUCJ");
+import "../style/auth.scss";
