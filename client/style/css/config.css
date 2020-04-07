@@ -1,0 +1,18 @@
+@import url(./normalize.css);
+@import url(./boxicons/css/boxicons.css);
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.flex {
+  display: flex; }
+
+.row {
+  flex-direction: row; }
+
+.space_between {
+  justify-content: space-between; }
+
+.my-5 {
+  margin-top: 5px;
+  margin-bottom: 5px; }

@@ -81,19 +81,19 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./app/config.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./module/config.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./app/config.js":
-/*!***********************!*\
-  !*** ./app/config.js ***!
-  \***********************/
+/***/ "./module/config.js":
+/*!**************************!*\
+  !*** ./module/config.js ***!
+  \**************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\n\n//# sourceURL=webpack:///./app/config.js?");
+eval("console.log(\"FUCJ\");\n\n\n//# sourceURL=webpack:///./module/config.js?");
 
 /***/ })
 

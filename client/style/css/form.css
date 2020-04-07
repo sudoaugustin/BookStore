@@ -1,0 +1,159 @@
+@import url(./normalize.css);
+@import url(./boxicons/css/boxicons.css);
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.flex {
+  display: flex; }
+
+.row {
+  flex-direction: row; }
+
+.space_between {
+  justify-content: space-between; }
+
+.my-5 {
+  margin-top: 5px;
+  margin-bottom: 5px; }
+
+form p {
+  font-family: "Roboto", sans-serif, serif; }
+
+form fieldset {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  border: none;
+  width: 100%;
+  max-width: 400px; }
+  @media (min-width: 300px) and (max-width: 768px) {
+    form fieldset {
+      max-width: 350px; } }
+  form fieldset label {
+    margin: 4px 2px; }
+    form fieldset label.msg {
+      color: #ff4621;
+      font-size: 15px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      height: 18px; }
+  form fieldset .textField,
+  form fieldset .passwordField,
+  form fieldset .searchField {
+    border: 3px solid rgba(0, 0, 0, 0);
+    transition: all .5 linear;
+    background-color: #d6e4ff;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    form fieldset .textField input,
+    form fieldset .passwordField input,
+    form fieldset .searchField input {
+      transition: all .5 linear;
+      font-family: "Google Sans", sans-serif, serif;
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
+      flex: 1; }
+  form fieldset .textField input,
+  form fieldset .passwordField input {
+    padding: 15px 5px; }
+  form fieldset .textField:focus-within,
+  form fieldset .passwordField:focus-within {
+    border-color: rgba(51, 102, 255, 0.8); }
+  form fieldset .textField.err,
+  form fieldset .passwordField.err {
+    border-color: #ff4621; }
+    form fieldset .textField.err input,
+    form fieldset .passwordField.err input {
+      border-left-color: #ff4621; }
+  form fieldset .textField i,
+  form fieldset .passwordField i {
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer; }
+    form fieldset .textField i:hover,
+    form fieldset .passwordField i:hover {
+      background-color: rgba(51, 102, 255, 0.2); }
+  form fieldset .searchField input {
+    padding: 8px 5px; }
+  form fieldset .searchField i {
+    border-radius: 50%; }
+    form fieldset .searchField i:first-child {
+      padding: 10px 5px; }
+    form fieldset .searchField i:last-child {
+      padding: 10px;
+      opacity: 0.8;
+      cursor: pointer; }
+      form fieldset .searchField i:last-child:hover {
+        background-color: rgba(51, 102, 255, 0.2); }
+  form fieldset .checkField {
+    cursor: pointer;
+    position: relative;
+    border: 0; }
+    form fieldset .checkField input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0; }
+      form fieldset .checkField input:checked ~ .checkmark {
+        background-color: rgba(51, 102, 255, 0.1); }
+        form fieldset .checkField input:checked ~ .checkmark::after {
+          display: block; }
+    form fieldset .checkField .checkmark {
+      position: relative;
+      top: 2px;
+      display: inline-block;
+      height: 13px;
+      width: 13px;
+      background-color: rgba(0, 0, 0, 0);
+      border: 2px solid #3366ff;
+      border-radius: 3px; }
+      form fieldset .checkField .checkmark::after {
+        content: "";
+        position: relative;
+        width: 4px;
+        height: 8px;
+        right: -3px;
+        border: solid #3366ff;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        display: none;
+        border-bottom-right-radius: 1px; }
+    form fieldset .checkField label {
+      cursor: pointer; }
+
+form .btn {
+  margin: 10px 0px;
+  max-width: 400px;
+  width: 100%; }
+  form .btn input[type="submit"],
+  form .btn a {
+    border: 2px solid #3366ff;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 15px 0px;
+    align-items: center;
+    display: flex;
+    justify-content: center; }
+  form .btn input[type="submit"] {
+    width: 100%;
+    background-color: #3366ff;
+    color: white; }
+  form .btn a {
+    color: #3366ff;
+    background-color: rgba(255, 255, 255, 0); }
+    form .btn a:hover {
+      background-color: rgba(51, 102, 255, 0.2); }
+
+.pwdVisibilityIcon {
+  padding: 8px; }
+  .pwdVisibilityIcon:hover {
+    background-color: rgba(51, 102, 255, 0.4);
+    border-radius: 50%; }

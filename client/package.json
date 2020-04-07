@@ -5,7 +5,8 @@
   "main": "src/",
   "scripts": {
     "scss-compile": "node-sass -rw style/scss -o style/css",
-    "watch": "webpack --watch && npm run scss-compile "
+    "watchjs": "webpack --watch  ",
+    "watchcss": "npm run scss-compile --watch"
   },
   "repository": {
     "type": "git",

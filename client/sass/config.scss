@@ -1,0 +1,101 @@
+$mobile: " (min-width: 100px) and (max-width: 800px)";
+$small_mobile: "(max-width: 500px)";
+$tablet: " (min-width: 800px) and (max-width: 992px)";
+$laptop: " (min-width: 992px) and (max-width: 1280px)";
+$desktop:" (min-width: 1280px)";
+$logoFont:'Joseifn Sans',sans-serif,serif;
+$font1:'Roboto',sans-serif,serif;
+$font2:'Google Sans',sans-serif,serif;
+$primary:#607AE3;
+$secondary:#49D9F8;
+$grey: rgb(130,130,130);
+$success:#00E676;
+$error:#F44336;
+$info:#304FFE;
+$warning:#FB8C00;
+//linear-gradient(90deg,#2cc7c0,#59d99d)
+$clear:rgba(0,0,0,0);
+body{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.logo_icon{
+  position: relative;
+  display: block;
+  &::before,&::after{
+    content: '  ';
+    width: 80%;
+    height: 80%;
+    position: relative;
+    border-radius: 50%;
+    display: block;
+  }
+  &::before{
+    background-color: $primary;
+    opacity: 0.7;
+    right: -20%;
+    bottom: -10%;
+  }
+  &::after{
+    top:-50%;
+    background-color: $secondary;
+    opacity: 0.7;
+  }
+}
+.flex-row-center{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.flex-col-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.flex{
+  display: flex;
+}
+.logo{
+  margin: 0px;
+  font-size: 23px;
+  font-weight: 500;
+  font-family: $logoFont;
+  color: $primary;
+  display: inline-block;
+}
+
+.MuiButton-root,.MuiFormLabel-root,.MuiInputBase-root,.MuiTypography-root{
+  font-family: $font2 !important;
+}
+
+.MuiInputLabel-outlined.CustomMuiFormLabel-root.Mui-focused,
+.MuiInputLabel-outlined.CustomMuiFormLabel-root[data-shrink=true]{
+  background-color:#fff;
+  padding: 0px 6px;
+  z-index: 1;
+}
+:export{
+  primary:$primary;
+  secondary:$secondary;
+  success:$success;
+  info:$info;
+  error:$error;
+  warning:$warning;
+}
+
+// .MuiFormControl-root{
+//   min-height: 85.75px
+// }
+/*
+Proxima+Nova
+Nunito
+Roboto
+Comfortaa
+Montaga
+Roboto+Condensed|Rubik|
+|Dosis|Quicksand|Tangerine|Varela+Round|Raleway|Cookie
+Alegreya+Sans+SC
+Quattrocento+Sans|
+*/
+// font-family: Poppins,Metropolis,Inter,X-LocaleSpecific,sans-serif;
