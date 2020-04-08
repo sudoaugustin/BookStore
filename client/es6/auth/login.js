@@ -4,7 +4,7 @@ import {
   handleChange,
   handleSubmit,
   redirectLogged,
-} from "./auth.js";
+} from "./index.js";
 import { getOS, setToken } from "../configFunc.js";
 redirectLogged();
 $(document).ready(function () {

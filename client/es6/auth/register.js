@@ -5,7 +5,7 @@ import {
   handleSubmit,
   verifyForm,
   redirectLogged,
-} from "./auth.js";
+} from "./index.js";
 redirectLogged();
 $(document).ready(function () {
   console.log("Readt");

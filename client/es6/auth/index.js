@@ -104,7 +104,7 @@ const newPassForm = (data) => {
   });
 };
 const redirectLogged = () => {
-  //if (getToken()) redirect("app.html");
+  if (getToken()) redirect("app.html");
 };
 
 const verifyForm = (data) => {

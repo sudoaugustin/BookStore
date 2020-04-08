@@ -4,6 +4,7 @@ const entryFiles = {
   register: "./es6/auth/register.js",
   index: "./es6/index.js",
   forget: "./es6/auth/forgetpassword.js",
+  app: "./es6/app/",
 };
 module.exports = {
   module: {

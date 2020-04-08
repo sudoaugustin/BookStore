@@ -1,5 +1,10 @@
 import $ from "jquery";
-import { handleChange, handleSubmit, timerClick, newPassForm } from "./auth.js";
+import {
+  handleChange,
+  handleSubmit,
+  timerClick,
+  newPassForm,
+} from "./index.js";
 import { isEmail } from "../configFunc.js";
 $(document).ready(function () {
   $(".textField input,.passwordField input").on("input", function (e) {
