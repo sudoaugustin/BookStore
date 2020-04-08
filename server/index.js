@@ -10,36 +10,40 @@ var speakeasy = require("speakeasy");
 const app = express();
 const port = 8000; //process.env.PORT
 const auth = require("./routes/auth");
-const user = require("./routes/user");
+// const user = require("./routes/user");
 const transporter = nodemailer.createTransport({
   service: "gmail",
-  auth: mail
+  auth: mail,
 });
 app.use(bodyParser.json({ limit: "50mb" }));
 
 app.use((req, res, next) => {
-  res._status = v => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  res._status = (v) => {
     res.status(v).end();
   };
   res.code = status;
-  res.mail = msg => {
+  res.mail = (msg) => {
     msg.from = mail.user;
-    transporter.sendMail(msg, function(error, info) {
+    transporter.sendMail(msg, function (error, info) {
       if (error) res._status(res.code.SRV_ERR);
       else res._status(res.code.OK);
     });
   };
-  req.generateCode = secret =>
+  req.generateCode = (secret) =>
     speakeasy.totp({
       secret: secret,
-      encoding: "base32"
+      encoding: "base32",
     });
   req.verifyCode = ({ secret, code }) =>
     speakeasy.totp.verify({
       secret: secret,
       encoding: "base32",
       token: code,
-      window: 4
+      window: 4,
     });
   next();
 });
@@ -48,11 +52,11 @@ mongoose
   .connect(db, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true
+    useCreateIndex: true,
   })
   .then(() => console.log("Successfully connected to database"))
-  .catch(err => console.log(err));
+  .catch((err) => console.log(err));
 // app.use("/user",user);
 app.use("/auth", auth);
-app.use("/user", user);
+// app.use("/user", user);
 app.listen(port, () => console.log("Server Started on " + port));

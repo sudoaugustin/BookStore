@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./es6/auth/login.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./es6/auth/forgetpassword.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -120,15 +120,15 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
-/***/ "./es6/auth/login.js":
-/*!***************************!*\
-  !*** ./es6/auth/login.js ***!
-  \***************************/
+/***/ "./es6/auth/forgetpassword.js":
+/*!************************************!*\
+  !*** ./es6/auth/forgetpassword.js ***!
+  \************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _auth_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./auth.js */ \"./es6/auth/auth.js\");\n/* harmony import */ var _configFunc_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../configFunc.js */ \"./es6/configFunc.js\");\n\n\n\nObject(_auth_js__WEBPACK_IMPORTED_MODULE_1__[\"redirectLogged\"])();\njquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(\".pwdVisibilityIcon\").click(function (e) {\n    Object(_auth_js__WEBPACK_IMPORTED_MODULE_1__[\"tglPasswordVisibility\"])(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr(\"for\"));\n  });\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(\".textField input,.passwordField input\").on(\"input\", function (e) {\n    Object(_auth_js__WEBPACK_IMPORTED_MODULE_1__[\"handleChange\"])(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr(\"name\"));\n  });\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"form\").on(\"submit\", (e) =>\n    Object(_auth_js__WEBPACK_IMPORTED_MODULE_1__[\"handleSubmit\"])(e, {\n      url: \"/auth/login/\",\n      _data: {\n        device: Object(_configFunc_js__WEBPACK_IMPORTED_MODULE_2__[\"getOS\"])(),\n      },\n      callback: ({ remember: temp, token }) => Object(_configFunc_js__WEBPACK_IMPORTED_MODULE_2__[\"setToken\"])({ token, temp }),\n    })\n  );\n});\n\n\n//# sourceURL=webpack:///./es6/auth/login.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _auth_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./auth.js */ \"./es6/auth/auth.js\");\n/* harmony import */ var _configFunc_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../configFunc.js */ \"./es6/configFunc.js\");\n\n\n\njquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(\".textField input,.passwordField input\").on(\"input\", function (e) {\n    Object(_auth_js__WEBPACK_IMPORTED_MODULE_1__[\"handleChange\"])(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr(\"name\"));\n  });\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"form\").on(\"submit\", (e) =>\n    Object(_auth_js__WEBPACK_IMPORTED_MODULE_1__[\"handleSubmit\"])(e, {\n      url: \"auth/verify/\",\n      callback: _auth_js__WEBPACK_IMPORTED_MODULE_1__[\"newPassForm\"],\n    })\n  );\n  jquery__WEBPACK_IMPORTED_MODULE_0___default()(\".timer\").click((e) => {\n    const email = jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"input[name=email]\");\n    if (!email.val()) {\n      email.parents(\"fieldset\").addClass(\"err\");\n      email\n        .parent()\n        .siblings(\".msg\")\n        .html(`<i class='bx bxs-error-circle' ></i>Enter email`);\n    } else if (!Object(_configFunc_js__WEBPACK_IMPORTED_MODULE_2__[\"isEmail\"])(email.val())) {\n      email.parents(\"fieldset\").addClass(\"err\");\n      email\n        .parent()\n        .siblings(\".msg\")\n        .html(`<i class='bx bxs-error-circle' ></i>Invalid email`);\n    } else Object(_auth_js__WEBPACK_IMPORTED_MODULE_1__[\"timerClick\"])(email.val());\n  });\n});\n\n\n//# sourceURL=webpack:///./es6/auth/forgetpassword.js?");
 
 /***/ }),
 

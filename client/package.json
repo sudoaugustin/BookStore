@@ -18,14 +18,19 @@
   "homepage": "https://github.com/Auguestin/BookStore#readme",
   "devDependencies": {
     "css-loader": "^3.5.0",
+    "file-loader": "^6.0.0",
     "node-sass": "^4.13.1",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^8.0.2",
     "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "url-loader": "^4.0.0"
   },
   "dependencies": {
+    "autoprefixer": "^9.7.6",
+    "axios": "^0.18.1",
     "jquery": "^3.4.1",
     "tailwindcss": "^1.2.0"
-  }
+  },
+  "proxy": "http://localhost:8000"
 }

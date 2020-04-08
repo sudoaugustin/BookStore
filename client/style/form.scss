@@ -10,8 +10,12 @@ form {
     border: none;
     width: 100%;
     max-width: 400px;
-    @media #{$mobile} {
-      max-width: 350px;
+    &.err {
+      color: $error;
+      .textField,
+      .passwordField {
+        border-color: $error;
+      }
     }
     label {
       margin: 4px 2px;
@@ -24,11 +28,18 @@ form {
         height: 18px;
       }
     }
+    a {
+      color: $primary;
+      &:active,
+      &:visited {
+        color: $primary !important;
+      }
+    }
     .textField,
     .passwordField,
     .searchField {
       border: 3px solid $clear;
-      transition: all .5 linear;
+      transition: all 0.5 linear;
       background-color: $grey;
       border-radius: 5px;
       color: rgba(0, 0, 0, 0.8);
@@ -36,7 +47,7 @@ form {
       align-items: center;
       justify-content: space-between;
       input {
-        transition: all .5 linear;
+        transition: all 0.5 linear;
         font-family: $font2;
         background-color: $clear;
         border: none;
@@ -45,17 +56,19 @@ form {
     }
     .textField,
     .passwordField {
+      &.dense {
+        input {
+          padding: 10px 5px;
+        }
+        .pwdVisibilityIcon {
+          padding: 5px;
+        }
+      }
       input {
         padding: 15px 5px;
       }
       &:focus-within {
-        border-color: rgba($primary, .8);
-      }
-      &.err {
-        border-color: $error;
-        input {
-          border-left-color: $error;
-        }
+        border-color: rgba($primary, 0.8);
       }
       i {
         padding: 10px;
@@ -63,6 +76,13 @@ form {
         cursor: pointer;
         &:hover {
           background-color: rgba($primary, 0.2);
+        }
+      }
+      .pwdVisibilityIcon {
+        padding: 8px;
+        &:hover {
+          background-color: rgba($primary, 0.4);
+          border-radius: 50%;
         }
       }
     }
@@ -95,39 +115,41 @@ form {
         cursor: pointer;
         height: 0;
         width: 0;
-        &:checked ~ .checkmark {
-          background-color: rgba($primary, .1);
+        &:checked ~ label .checkmark {
+          background-color: $primary;
           &::after {
             display: block;
+            border-color: white;
           }
-        }
-      }
-      .checkmark {
-        position: relative;
-        top: 2px;
-        display: inline-block;
-        height: 13px;
-        width: 13px;
-        background-color: $clear;
-        border: 2px solid $primary;
-        border-radius: 3px;
-        &::after {
-          content: "";
-          position: relative;
-          width: 4px;
-          height: 8px;
-          right: -3px;
-          border: solid $primary;
-          border-width: 0 3px 3px 0;
-          -webkit-transform: rotate(45deg);
-          -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
-          display: none;
-          border-bottom-right-radius: 1px;
         }
       }
       label {
         cursor: pointer;
+        .checkmark {
+          position: relative;
+          top: 2px;
+          display: inline-block;
+          height: 13px;
+          width: 13px;
+          background-color: $clear;
+          border: 2px solid $primary;
+          border-radius: 3px;
+          margin-right: 3px;
+          &::after {
+            content: "";
+            position: relative;
+            width: 4px;
+            height: 8px;
+            right: -3px;
+            border: solid $primary;
+            border-width: 0 2px 2px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+            display: none;
+            border-bottom-right-radius: 1px;
+          }
+        }
       }
     }
   }
@@ -135,6 +157,12 @@ form {
     margin: 10px 0px;
     max-width: 400px;
     width: 100%;
+    &.dense {
+      input[type="submit"],
+      a {
+        padding: 10px 0px;
+      }
+    }
     input[type="submit"],
     a {
       border: 2px solid $primary;
@@ -157,12 +185,5 @@ form {
         background-color: rgba($primary, 0.2);
       }
     }
-  }
-}
-.pwdVisibilityIcon {
-  padding: 8px;
-  &:hover {
-    background-color: rgba($primary, .4);
-    border-radius: 50%;
   }
 }

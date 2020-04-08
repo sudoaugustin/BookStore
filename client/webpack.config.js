@@ -1,7 +1,9 @@
 const path = require("path");
 const entryFiles = {
-  login: "./es6/login.js",
+  login: "./es6/auth/login.js",
+  register: "./es6/auth/register.js",
   index: "./es6/index.js",
+  forget: "./es6/auth/forgetpassword.js",
 };
 module.exports = {
   module: {
