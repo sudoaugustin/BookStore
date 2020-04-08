@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("console.log(\"SHIT\");\r\n\n\n//# sourceURL=webpack:///./es6/login.js?");
+eval("throw new Error(\"Module build failed: Error: ENOENT: no such file or directory, open 'D:\\\\BookStore\\\\client\\\\es6\\\\login.js'\");\n\n//# sourceURL=webpack:///./es6/login.js?");
 
 /***/ })
 

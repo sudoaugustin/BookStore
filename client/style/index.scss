@@ -31,7 +31,10 @@ body{
             font-weight: bold;
             font-style: italic;
             font-size: 40px;
-            text-transform: uppercase;
+            @media #{$tablet}{
+                font-size: 35px;
+                text-align: center;
+            }
             @media #{$mobile}{
                 font-size: 30px;
                 text-align: center;

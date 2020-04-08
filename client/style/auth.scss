@@ -1,6 +1,7 @@
 @import "form.scss";
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 95vh;
@@ -45,13 +46,81 @@ form {
   margin: 15px 0px;
   padding: 10px 15px;
   max-width: 400px;
+  background-color: white;
   @media #{$mobile} {
-    max-width: 350px;
+    width: 95%;
     margin: 0px;
+    box-shadow: none;
+    padding: 10px 5px;
+  }
+  @media #{$small_mob} {
+    width: 95%;
+    padding: 10px 5px;
   }
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px,
+    rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+}
+.box-root {
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+  ul {
+    list-style: none;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    transform: rotate(-10deg) skew(-10deg, 0);
+    &.left {
+      left: -4px;
+      bottom: -45px;
+    }
+    &.right {
+      right: -4px;
+      top: -20px;
+    }
+    li {
+      width: 300px;
+      @media #{$tablet} {
+        width: 200px;
+      }
+      @media #{$mobile} {
+        display: none;
+      }
+      height: 60px;
+      display: flex;
+      span {
+        flex: 1;
+        border: 2px solid;
+        padding: 0;
+        &.outline {
+          border-color: $grey;
+        }
+        &.clear {
+          border-color: $clear;
+          background-color: $clear;
+        }
+        &.primary {
+          border-color: $primary;
+          background-color: $primary;
+        }
+        &.primary_tint {
+          border-color: $primary_tint;
+          background-color: $primary_tint;
+        }
+        &.secondary {
+          border-color: $secondary;
+          background-color: $secondary;
+        }
+        &.green {
+          border-color: $success;
+          background-color: $success;
+        }
+      }
+    }
+  }
 }

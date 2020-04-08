@@ -3,13 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script type="text/javascript" src="../src/config.js"></script>
+    <title></title>
+    <script type="text/javascript" src="../src/login.js"></script>
   </head>
 
   <body>
+    <div class="linear-progress-material">
+      <div class="bar bar1" ></div>
+      <div class="bar bar2"></div>
+    </div>  
+    <h1 class="logo primary">Booky</h1>
     <form method="POST">
-      <h1 class="logo primary">Booky</h1>
       <p>Welcome Back,Please login to your account</p>
       <fieldset>
         <label for="email">Email</label>
@@ -54,24 +58,63 @@
         <label for="password" class="msg"></label>
       </fieldset>
       <fieldset>
-        <div class="flex row space_between my-5">
+        <div class="flex row space_between my_0_5">
           <div class="checkField">
-            <input type="checkbox" name="remember" id="remember" {{
-            old('remember') ? 'checked' : '' }}>
-            <span class="checkmark"></span>
-            <label for="remember">Remember Me </label>
+            <input type="checkbox" name="remember" id="remember" />
+            <label for="remember">
+              <span class="checkmark" for="remember"></span>Remember Me
+            </label>
           </div>
-          <a href="/forgetpassword.html">Forget Password?</a>
+          <a href="forgetpassword.html">Forget Password?</a>
         </div>
       </fieldset>
       <div class="btn">
         <input type="submit" name="submit" value="Login" />
       </div>
       <div class="btn outlined">
-        <a href="register">Signup</a>
+        <a href="register.html">Create account</a>
       </div>
-      <i class="bx bxs-door-open"></i>
-      <i class="bx bxs-diamond"></i>
     </form>
+    <div class="box-root">
+      <ul class="left">
+        <li>        
+          <span class="outline"></span>
+        </li>
+        <li>      
+        </li>
+        <li>        
+          <span class="primary_tint"></span>
+          <span class="clear"></span>
+        </li>
+        <li>        
+          <span class="clear"></span>
+          <span class="primary"></span>
+        </li>
+      </ul>
+      <ul class="right">
+        <li>        
+          <span class="clear"></span>
+          <span class="secondary"></span>
+          <span class="secondary"></span>
+          <span class="secondary"></span>
+        </li>
+        <li>
+          <span class="primary"></span>
+        </li>
+        <li>        
+          <span class="clear"></span>
+          <span class="clear"></span>
+          <span class="clear"></span>
+          <span class="primary_tint"></span>
+        </li>
+        <li>        
+          <span class="outline f3"></span>
+          <span class="clear"></span>
+          
+        </li>
+        <li>        
+        </li>
+      </p>
+    </div>
   </body>
 </html>
