@@ -81,20 +81,19 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./es6/config.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./es6/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./es6/config.js":
-/*!***********************!*\
-  !*** ./es6/config.js ***!
-  \***********************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./es6/index.js":
+/*!**********************!*\
+  !*** ./es6/index.js ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module '../style/auth.scss'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n\r\n\n\n//# sourceURL=webpack:///./es6/config.js?");
+eval("\n\n//# sourceURL=webpack:///./es6/index.js?");
 
 /***/ })
 

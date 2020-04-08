@@ -1,5 +1,8 @@
 const path = require("path");
-
+const entryFiles = {
+  login: "./es6/login.js",
+  index: "./es6/index.js",
+};
 module.exports = {
   module: {
     rules: [
@@ -21,10 +24,7 @@ module.exports = {
     ],
   },
   mode: "development",
-  entry: {
-    index: "./es6/index.js",
-    config: "./es6/config.js",
-  },
+  entry: entryFiles,
   output: {
     path: path.resolve(__dirname, "src"),
   },
