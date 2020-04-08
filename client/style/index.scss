@@ -1,14 +1,14 @@
 @import 'config.scss';
-$gradient1:"#00bdaa";
-$gradient2:"#400082";
+$gradient1:#00bdaa;
+$gradient2:#400082;
 
 html{
-    font-family: "Roboto",serif;
+    font-family: "Ubuntu", sans-serif,serif;
 }
 body{
     // background-image: linear-gradient(to left,$primary,$secondary);
     background-size: 100%;
-    height: 2000px;
+    
 }
 
 .nav-bar{
@@ -29,7 +29,7 @@ body{
         float: left;
             li{
             font-weight: bold;
-            font-style: italic;
+            
             font-size: 40px;
             @media #{$tablet}{
                 font-size: 35px;
@@ -61,7 +61,7 @@ body{
             
             a{
                 text-decoration: none;
-                color: #400082;
+                color: #142850;
                 display: block;
                 padding-right: 30px;
                 margin-top:10px ;
@@ -153,10 +153,75 @@ body{
     
     
 }
+.box-root {
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    ul {
+      list-style: none;
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      transform: rotate(-10deg) skew(-10deg, 0);
+      &.left {
+        left: -4px;
+        bottom: -45px;
+      }
+      &.right {
+        right: -4px;
+        top: -20px;
+      }
+      li {
+        width: 300px;
+        @media #{$tablet} {
+          width: 200px;
+        }
+        @media #{$mobile} {
+          display: none;
+        }
+        height: 60px;
+        display: flex;
+        span {
+          flex: 1;
+          border: 2px solid;
+          padding: 0;
+          &.outline {
+            border-color: $grey;
+          }
+          &.clear {
+            border-color: $clear;
+            background-color: $clear;
+          }
+          &.primary {
+            border-color: $primary;
+            background-color: $primary;
+          }
+          &.primary_tint {
+            border-color: $primary_tint;
+            background-color: $primary_tint;
+          }
+          &.secondary {
+            border-color: $secondary;
+            background-color: $secondary;
+          }
+          &.green {
+            border-color: $success;
+            background-color: $success;
+          }
+        }
+      }
+    }
+  }
+  
 .container{
+    text-align: center;
     padding-top: 50px;
     clear: both;
-    
+    @media #{$tablet}{
+        text-align: center;
+    }
     .card{
         
         float: left;
@@ -165,24 +230,103 @@ body{
         transition: 0.3s;
         border-radius: 5px; 
         padding:20px;
+        color: #333333;
+        @media #{$tablet}{
+            clear: both;
+            padding: 30px;
+        }
         img{
             border-radius: 5px 5px;
         }
         .desc{
+            
             padding: 2px 16px;
             text-align: center;
         }
     }
     .card:hover{
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); 
-        color: #67b831;
+        color: #ffe75e;
     }
 
-    .card-title{
-        
+    .card-title{ 
         text-align: center;
         text-transform: uppercase;
-        font-size :2em;
-        color:#7c06e3 ;
+        font-size :1.5em;
+        color:#512b58 ;
     }
 }
+.payments{
+    clear: both;
+    margin: auto;
+    width: 50%;
+    .payment-title{
+        padding-top: 20px;
+        color: #21bf73;
+        text-transform: uppercase;
+        
+    }
+    .pay{
+        list-style-type: none;
+
+        .custom-button{
+            margin-top: 30px;
+            text-align: center;
+            border: none;
+            background-color: burlywood;
+            border-radius: 4px;
+            padding :8px;
+            width: 180px;
+            color: white;
+            display: none;
+        }
+        li{
+            
+            box-sizing: border-box;
+            padding: 40px;
+            float: left;
+            @media #{$tablet}{
+                width: 80px;
+            }
+        }
+        a:hover{
+            
+            opacity: 0.1;
+            transition: 0.3s;
+            .custom-button{
+                transition: 0.3s;
+                margin: auto;
+                display: block;
+                box-shadow: 0 px 8px 0 rgba(0,0,0, 0.2);
+            }
+        }
+    }
+}
+    .footer{
+        clear: both;
+        margin: auto;
+        width: 70%;
+        background-color: #000;
+       .foot{
+            float: left;
+
+            #location{
+                color: #512b58;
+            }
+              #space{
+                  height: 70px;;
+              } 
+                li{
+                    
+                    list-style-type: none;
+                    padding: 20px;
+                    
+                    a{
+                        color: black;
+                    }
+                }
+            }
+            
+        }
+    
+ 
