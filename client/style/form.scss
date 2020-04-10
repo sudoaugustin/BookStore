@@ -1,189 +1,188 @@
 @import "config.scss";
-form {
-  p {
-    font-family: $font1;
-  }
-  fieldset {
-    display: flex;
-    flex-direction: column;
-    padding: 0px;
-    border: none;
-    width: 100%;
-    max-width: 400px;
-    &.err {
-      color: $error;
-      .textField,
-      .passwordField {
-        border-color: $error;
-      }
-    }
-    label {
-      margin: 4px 2px;
-      &.msg {
-        color: $error;
-        font-size: 15px;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        height: 18px;
-      }
-    }
-    a {
-      color: $primary;
-      &:active,
-      &:visited {
-        color: $primary !important;
-      }
-    }
-    .textField,
-    .passwordField,
-    .searchField {
-      border: 3px solid $clear;
-      transition: all 0.5 linear;
-      background-color: $grey;
-      border-radius: 5px;
-      color: rgba(0, 0, 0, 0.8);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      input {
-        transition: all 0.5 linear;
-        font-family: $font2;
-        background-color: $clear;
-        border: none;
-        flex: 1;
-      }
-    }
+
+p {
+  font-family: $font1;
+}
+fieldset {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  border: none;
+  width: 100%;
+  max-width: 400px;
+  &.err {
+    color: $error;
     .textField,
     .passwordField {
-      &.dense {
-        input {
-          padding: 10px 5px;
-        }
-        .pwdVisibilityIcon {
-          padding: 5px;
-        }
-      }
+      border-color: $error;
+    }
+  }
+  label {
+    margin: 4px 2px;
+    &.msg {
+      color: $error;
+      font-size: 15px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      height: 18px;
+    }
+  }
+  a {
+    color: $primary;
+    &:active,
+    &:visited {
+      color: $primary !important;
+    }
+  }
+  .textField,
+  .passwordField,
+  .searchField {
+    border: 3px solid $clear;
+    transition: all 0.5 linear;
+    background-color: $grey;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    input {
+      transition: all 0.5 linear;
+      font-family: $font2;
+      background-color: $clear;
+      border: none;
+      flex: 1;
+    }
+  }
+  .textField,
+  .passwordField {
+    &.dense {
       input {
-        padding: 15px 5px;
+        padding: 10px 5px;
       }
-      &:focus-within {
-        border-color: rgba($primary, 0.8);
+      .pwdVisibilityIcon {
+        padding: 5px;
       }
-      i {
-        padding: 10px;
+    }
+    input {
+      padding: 15px 5px;
+    }
+    &:focus-within {
+      border-color: rgba($primary, 0.8);
+    }
+    i {
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      &:hover {
+        background-color: rgba($primary, 0.2);
+      }
+    }
+    .pwdVisibilityIcon {
+      padding: 8px;
+      &:hover {
+        background-color: rgba($primary, 0.4);
         border-radius: 50%;
+      }
+    }
+  }
+  .searchField {
+    input {
+      padding: 8px 5px;
+    }
+    i {
+      border-radius: 50%;
+      &:first-child {
+        padding: 10px 5px;
+      }
+      &:last-child {
+        padding: 10px;
+        opacity: 0.8;
         cursor: pointer;
         &:hover {
           background-color: rgba($primary, 0.2);
         }
       }
-      .pwdVisibilityIcon {
-        padding: 8px;
-        &:hover {
-          background-color: rgba($primary, 0.4);
-          border-radius: 50%;
-        }
-      }
     }
-    .searchField {
-      input {
-        padding: 8px 5px;
-      }
-      i {
-        border-radius: 50%;
-        &:first-child {
-          padding: 10px 5px;
-        }
-        &:last-child {
-          padding: 10px;
-          opacity: 0.8;
-          cursor: pointer;
-          &:hover {
-            background-color: rgba($primary, 0.2);
-          }
-        }
-      }
-    }
-    .checkField {
+  }
+  .checkField {
+    cursor: pointer;
+    position: relative;
+    border: 0;
+    input {
+      position: absolute;
+      opacity: 0;
       cursor: pointer;
-      position: relative;
-      border: 0;
-      input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0;
-        &:checked ~ label .checkmark {
-          background-color: $primary;
-          &::after {
-            display: block;
-            border-color: white;
-          }
+      height: 0;
+      width: 0;
+      &:checked ~ label .checkmark {
+        background-color: $primary;
+        &::after {
+          display: block;
+          border-color: white;
         }
       }
-      label {
-        cursor: pointer;
-        .checkmark {
+    }
+    label {
+      cursor: pointer;
+      .checkmark {
+        position: relative;
+        top: 2px;
+        display: inline-block;
+        height: 13px;
+        width: 13px;
+        background-color: $clear;
+        border: 2px solid $primary;
+        border-radius: 3px;
+        margin-right: 3px;
+        &::after {
+          content: "";
           position: relative;
-          top: 2px;
-          display: inline-block;
-          height: 13px;
-          width: 13px;
-          background-color: $clear;
-          border: 2px solid $primary;
-          border-radius: 3px;
-          margin-right: 3px;
-          &::after {
-            content: "";
-            position: relative;
-            width: 4px;
-            height: 8px;
-            right: -3px;
-            border: solid $primary;
-            border-width: 0 2px 2px 0;
-            -webkit-transform: rotate(45deg);
-            -ms-transform: rotate(45deg);
-            transform: rotate(45deg);
-            display: none;
-            border-bottom-right-radius: 1px;
-          }
+          width: 4px;
+          height: 8px;
+          right: -3px;
+          border: solid $primary;
+          border-width: 0 2px 2px 0;
+          -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+          display: none;
+          border-bottom-right-radius: 1px;
         }
       }
     }
   }
-  .btn {
-    margin: 10px 0px;
-    max-width: 400px;
-    width: 100%;
-    &.dense {
-      input[type="submit"],
-      a {
-        padding: 10px 0px;
-      }
-    }
+}
+.btn {
+  margin: 10px 0px;
+  max-width: 400px;
+  width: 100%;
+  &.dense {
     input[type="submit"],
     a {
-      border: 2px solid $primary;
-      cursor: pointer;
-      border-radius: 5px;
-      padding: 15px 0px;
-      align-items: center;
-      display: flex;
-      justify-content: center;
+      padding: 10px 0px;
     }
-    input[type="submit"] {
-      width: 100%;
-      background-color: $primary;
-      color: rgb(255, 255, 255);
-    }
-    a {
-      color: $primary;
-      background-color: rgba(255, 255, 255, 0);
-      &:hover {
-        background-color: rgba($primary, 0.2);
-      }
+  }
+  input[type="submit"],
+  a {
+    border: 2px solid $primary;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 15px 0px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  input[type="submit"] {
+    width: 100%;
+    background-color: $primary;
+    color: rgb(255, 255, 255);
+  }
+  a {
+    color: $primary;
+    background-color: rgba(255, 255, 255, 0);
+    &:hover {
+      background-color: rgba($primary, 0.2);
     }
   }
 }

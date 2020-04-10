@@ -7,7 +7,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.x_flex_end {
+  justify-content: flex-end;
+}
+.y_center {
+  align-items: center;
+}
+.y_base {
+  align-items: baseline;
+}
 .flex {
   display: flex;
 }
@@ -19,9 +27,25 @@ body {
 .space_between {
   justify-content: space-between;
 }
+.space_around {
+  justify-content: space-around;
+}
+.wrap {
+  flex-wrap: wrap;
+}
+.op_8 {
+  opacity: 0.8 !important;
+}
 .my_5 {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+.px_5 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.rounded {
+  border-radius: 25%;
 }
 .my_0_5 {
   margin-top: 0;
@@ -32,6 +56,12 @@ body {
 }
 .secondary {
   color: $secondary;
+}
+.success {
+  color: $success;
+}
+.bg_primary_tint {
+  background-color: rgba($primary_tint, 0.3);
 }
 
 .f3 {

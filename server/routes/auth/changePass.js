@@ -2,7 +2,6 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const router = express.Router();
 const User = require("../../models/User");
-const Recover = require("../../models/Recover");
 router.post("/", (req, res) => {
   const body = req.body,
     email = body.email;
