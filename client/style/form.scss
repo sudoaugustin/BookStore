@@ -13,7 +13,7 @@ fieldset {
   &.err {
     color: $error;
     .textField,
-    .passwordField {
+    .passwordField,.phoneField {
       border-color: $error;
     }
   }
@@ -37,7 +37,7 @@ fieldset {
   }
   .textField,
   .passwordField,
-  .searchField {
+  .searchField,.phoneField {
     border: 3px solid $clear;
     transition: all 0.5 linear;
     background-color: $grey;
@@ -50,12 +50,12 @@ fieldset {
       transition: all 0.5 linear;
       font-family: $font2;
       background-color: $clear;
-      border: none;
+      border: none !important;
       flex: 1;
     }
   }
   .textField,
-  .passwordField {
+  .passwordField,.phoneField {
     &.dense {
       input {
         padding: 10px 5px;
@@ -85,6 +85,22 @@ fieldset {
         border-radius: 50%;
       }
     }
+  }
+  .phoneField{
+    input{
+      width: 100%;
+      &:focus{
+        border: none !important;
+      }
+    }
+          i{   
+            font-style: normal; 
+            padding:5px;    
+        cursor: default !important;
+        &:hover{          
+          background-color: $clear;
+        }
+      }
   }
   .searchField {
     input {

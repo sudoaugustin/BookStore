@@ -106,7 +106,6 @@ const newPassForm = (data) => {
 const redirectLogged = () => {
   if (getToken()) redirect("app.html");
 };
-console.log(getToken());
 
 const verifyForm = (data) => {
   $("form").replaceWith(authCode);

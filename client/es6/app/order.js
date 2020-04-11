@@ -1,11 +1,11 @@
 const order_row = (order) => {
-  const { id, img, name, edition = " ", email, price, payment } = order;
+  const { id, img, name, category = " ", email, price, payment } = order;
   return `<tr id=${id}>
                 <td>
                 <ul class="flex">
                     <li><img src=${img} alt=""></li>
                     <li>
-                        <p>${name}</p><span>${edition}</span>
+                        <p>${name}</p><span>${category}</span>
                     </li>
                 </ul>
                 </td>
@@ -28,7 +28,7 @@ const order_tabel = (status) => `
                                     <table>
                                         <tr>
                                             <th>Book </th>
-                                            <th>Customer's email</th>
+                                            <th>Customer  Info</th>
                                             <th class="price">Amount</th>
                                             <th></th>
                                         </tr>
