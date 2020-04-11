@@ -131,10 +131,10 @@ const updatePayments = ({ $, axios }) => {
     axios
       .put("/payment/", payments)
       .then((res) => {
-        $(".linear-progress-material.show").addClass("show");
+        $(".linear-progress-material.show").removeClass("show");
       })
       .catch((err) => {
-        $(".linear-progress-material.show").addClass("show");
+        $(".linear-progress-material.show").removeClass("show");
       });
   }
 };
@@ -143,7 +143,6 @@ const Bills = () =>
   `<div class="bill-root">
       <h2>Fees to pay for book sales</h2>
       <div class="flex"><h1>489374</h1><h3>Ks</h3></div>
-      <div class="flex">
           <fieldset>
                   <label for="password">Select & Enter Account Id </label>
                   <div class="phoneField">
@@ -161,7 +160,40 @@ const Bills = () =>
                   </div>
                   <label for="wave" class="msg"></label>
           </fieldset>
-      </div>
+          <div class="btn">
+            <input type="submit" name="submit" value="Pay Bills" />
+          </div>
    </div>`;
-
+const PayBills = ({ $, axios }) => {
+  const id = $("input[type=tel]"),
+    gateway = $(".popup-root .payment-method span.active").html(),
+    error = !id.val()
+      ? "Enter account id"
+      : gateway.includes("pay")
+      ? id.val().length < 8 || id.val().length > 12
+        ? "Invalid phone number"
+        : null
+      : id.val().length < 16 || id.val().length > 17
+      ? "Invalid account number"
+      : null;
+  if (error) {
+    id.parents("fieldset").addClass("err");
+    id.parent()
+      .siblings(".msg")
+      .html(`<i class='bx bxs-error-circle' ></i>${error}`);
+  } else {
+    $(".linear-progress-material.show").addClass("show");
+    axios
+      .post("/paybill/", {
+        id,
+        gateway,
+      })
+      .then((res) => {
+        $(".linear-progress-material.show").removeClass("show");
+      })
+      .catch((err) => {
+        $(".linear-progress-material.show").removeClass("show");
+      });
+  }
+};
 export { updateProfile, Profile, Payments, updatePayments, Bills };
