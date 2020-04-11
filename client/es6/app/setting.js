@@ -1,4 +1,5 @@
 import { isUsername } from "../configFunc";
+import requestedSVG from "../../img/paybill.svg";
 const Profile = ({ name, avatar, email }) => `
                 <div class="profile-setting-root">
                     <input type="file" style="display: none;">
@@ -169,7 +170,7 @@ const PayBills = ({ $, axios }) => {
     gateway = $(".popup-root .payment-method span.active").html(),
     error = !id.val()
       ? "Enter account id"
-      : gateway.includes("pay")
+      : gateway.includes("Pay")
       ? id.val().length < 8 || id.val().length > 12
         ? "Invalid phone number"
         : null
@@ -196,4 +197,11 @@ const PayBills = ({ $, axios }) => {
       });
   }
 };
-export { updateProfile, Profile, Payments, updatePayments, Bills };
+const Requested = ({ accountId }) =>
+  `<div class="requested">
+     <h1>Requested</h1>
+     ${requestedSVG}
+     <p>Your request has been sent to server.Please send money to the following account within two days or your request will be rejected </p>
+     <span>${accountId}<i class='bx bxs-copy'></i></span>
+   </div>`;
+export { updateProfile, Profile, Payments, updatePayments, Bills, PayBills };

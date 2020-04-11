@@ -9,6 +9,7 @@ import {
   Payments,
   updatePayments,
   Bills,
+  PayBills,
 } from "./setting";
 import "../../style/app.scss";
 import notFound from "../../img/not_found.svg";
@@ -248,7 +249,7 @@ $(document).ready(() => {
         break;
       case "bills":
         renderPop(Bills());
-        // $(".popup-root .btn").click(() => updatePayments({ $, axios }));
+        $(".popup-root .btn").click(() => PayBills({ $, axios }));
         break;
 
       default:
