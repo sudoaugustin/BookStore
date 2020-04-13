@@ -1,6 +1,12 @@
 import "../../style/auth.scss";
 import $ from "jquery";
-import { isUsername, isEmail, getToken, redirect } from "../configFunc.js";
+import {
+  isUsername,
+  isEmail,
+  getToken,
+  redirect,
+  rmvToken,
+} from "../configFunc.js";
 import axios from "axios";
 axios.defaults.baseURL = "http://localhost:8000";
 var visibile = false;

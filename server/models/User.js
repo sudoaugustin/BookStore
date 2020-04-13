@@ -8,35 +8,44 @@ const user = new Schema({
     type: String,
     require: true,
     minlength: 5,
-    maxlength: 20
+    maxlength: 20,
   },
   email: {
     type: String,
     require: true,
-    unique: true
+    unique: true,
   },
   password: {
     type: String,
     require: true,
-    set: v => bcrypt.hashSync(v, 10),
-    minlength: 8
+    set: (v) => bcrypt.hashSync(v, 10),
+    minlength: 8,
   },
   phone: {
     // ?default: [" "],
-    type: Array
+    type: Array,
   },
   status: {
     type: Number,
-    default: status.NOT_VERIFIED
+    default: status.NOT_VERIFIED,
   },
   since: {
     type: Date,
-    default: new Date()
+    default: new Date(),
   },
   secret: {
     type: String,
     default: speakeasy.generateSecret({ length: 20 }).base32,
-    unique: true
-  }
+    unique: true,
+  },
+  avatar: String,
+  bill: { type: Number, default: 0 },
+  payments: {
+    kbzbank: String,
+    cbbank: String,
+    kbzpay: String,
+    cbpay: String,
+    wave: String,
+  },
 });
 module.exports = User = mongoose.model("User", user);

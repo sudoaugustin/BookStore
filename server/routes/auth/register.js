@@ -11,7 +11,7 @@ const User = require("../../models/User");
 router.post("/", (req, res) => {
   const body = req.body,
     newUser = new User({
-      name: body.username,
+      name: body.user,
       email: body.email,
       password: body.password,
     });

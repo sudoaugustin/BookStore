@@ -1,3 +1,21 @@
+import EmptyShelfSVG from "../../img/book_shelf.svg";
+const months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+const EmptyShelf = `<div class="emptyShelf">
+                      <img src=${EmptyShelfSVG}>
+                    </div>`;
 const searchBar = ` <div class="flex x_flex_end y_center">
                         <fieldset>
                             <div class="searchField">
@@ -14,11 +32,13 @@ const renderBooks = ({ $, books, parent }) =>
 
 const renderBook = ({
   src,
+  _id,
   description,
   pages,
   category,
   date,
   title,
+  guest = false,
 }) => `<div class="book-detail">
                 <i class='bx bx-x'></i>
                 <div class="left"><img src=${src} alt=""></div>
@@ -30,7 +50,10 @@ const renderBook = ({
                     <h2>Book Detail</h2>
                     <p>Pages : ${pages}</p>
                     <p>Category : ${category}</p>
-                    <p>Published Date: ${date}</p>
+                    <p>Published Date: ${
+                      months[date.getMonth()]
+                    }-${date.getDate()}-${date.getFullYear()}</p>
+                    ${!guest ? "" : ' <p class="checkout-btn">Buy Book</p>'}
                 </div>
             </div>`;
 
@@ -49,6 +72,11 @@ const NewBook = `
                         <img id="img-picker"
                             class="blank"
                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAABAUlEQVRYhe2XwXHCMBBFXQIlUAIluAQ6CCWkA9xJWqADfHtfuiidkA6cQ2xG8YCxQNJw2D/zb9bqzf4dSW4akymzgK1z7sM5d8xp7/0uGcZ7v5N0kTQU8lcSkKTvgjCDpCGpU6VhJA1AZ0AGZEBP+Gf0ewABrXNu/xZA8QaSTrWB/kUD9PH6EMLmUXRZgYAW6Ca4EMJmXuNRdNmApkJTF4B2oc4paeNUoHk0wHapzgj9WQroZjRVdG9uXq0bzd3LMxTWvghrAa22AaUAAV0cp6Rz9O15ddxAnwMoW3fHv45Vt3YVoKb5O9SAA9CleB7ZzNfOA/3S2ip6eqgNyIBMBfQL4L8zDmJNrg4AAAAASUVORK5CYII=" />
+                        <label for="src" class="msg"></label>
+                    </fieldset>
+                    <fieldset class="y_center">
+                        <input style="display:none" type="file" name="file" accept=".epub,.mobi,.pdf"/>
+                        <span class="file-picker" id="file-picker">Upload Ebook</span>
                         <label for="src" class="msg"></label>
                     </fieldset>
                     <fieldset>
@@ -104,7 +132,8 @@ const NewBook = `
             </div>`;
 
 const handelAddBook = ({ $, axios }) => {
-  const src = $("input[type=file]").prop("files")[0],
+  const src = $("input[name=src]").prop("files")[0],
+    file = $("input[name=file]").prop("files")[0],
     name = $("input[name=name]"),
     desc = $("textarea[name=desc]"),
     price = $("input[name=price]"),
@@ -149,26 +178,31 @@ const handelAddBook = ({ $, axios }) => {
   if (!src) {
     $("img.blank").addClass("err");
   }
-  if (!$("fieldset.err").length) {
+  if (!file) {
+    $("#file-picker").addClass("err");
+  }
+  if (!$("fieldset.err").length && src && file) {
     const form = new FormData();
+    const img = $("#img-picker").attr("src");
     form.append("name", name.val());
     form.append("description", desc.val());
     form.append("category", category);
     form.append("price", price.val());
-    form.append("src", src);
+    form.append("pages", page.val());
+    form.append("ebook", file);
+    form.append("img", img);
     $(".linear-progress-material.show").addClass("show");
     axios
-      .post("/book/", form)
+      .post("user/book", form)
       .then((res) => {
         $(".linear-progress-material.show").removeClass("show");
-        console.log(res);
         callback();
       })
       .catch((err) => {
         $(".linear-progress-material.show").removeClass("show");
-        console.log(err);
+        console.log({ err });
       });
   }
 };
 
-export { Books, renderBooks, renderBook, NewBook, handelAddBook };
+export { Books, renderBooks, renderBook, NewBook, handelAddBook, EmptyShelf };

@@ -5,6 +5,7 @@ const entryFiles = {
   index: "./es6/index.js",
   forget: "./es6/auth/forgetpassword.js",
   app: "./es6/app/",
+  author: "./es6/app/author.js",
 };
 module.exports = {
   module: {

@@ -31,11 +31,11 @@ export function isURL(str) {
   return !!pattern.test(str);
 }
 
-export const headerConfig = token => {
+export const headerConfig = (token) => {
   const config = {
     headers: {
-      "Content-type": "application/json"
-    }
+      "Content-type": "application/json",
+    },
   };
   if (token) config.headers["x-auth-token"] = token;
   return config;
@@ -95,30 +95,36 @@ export function hexToRgba(hex, a = 1) {
   throw new Error("Bad Hex");
 }
 
-export const toBase64 = file =>
+export const toBase64 = (file) =>
   new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => resolve(reader.result);
-    reader.onerror = error => reject(error);
+    reader.onerror = (error) => reject(error);
   });
 
-// export function copyCmd(text,success,fail) {
-//   let txtarea = dom.add("textarea ?value="+text);
-//   css(txtarea,"left:-1000px;width:0;height:0;position:fixed");
-//   txtarea.focus();
-//   txtarea.select();
-//   let status=document.execCommand('copy');
-//   dom.remove(document.body,txtarea);
-//   if(status && success)success();
-//   else if (!status && fail)fail();
-// }
-// export function copy(text,success,fail) {
-//   if (!navigator.clipboard) copyCmd(text,success,fail);
-//   else {
-//     navigator.clipboard.writeText(text).then(()=>{if(success)success()},()=>copyCmd(text,success,fail));
-//    }
-// }
+export function copyCmd(text, success, fail, $) {
+  $(document.body).append(
+    `<input id="copyText" value=${text} style="left:-1000px;width:0;height:0;position:fixed"/>`
+  );
+  $("#copyText").focus();
+  $("#copyText").select();
+  let status = document.execCommand("copy");
+  $("input#copyText").remove();
+  if (status && success) success();
+  else if (!status && fail) fail();
+}
+export function copy(text, success, fail, $) {
+  if (!navigator.clipboard) copyCmd(text, success, fail, $);
+  else {
+    navigator.clipboard.writeText(text).then(
+      () => {
+        if (success) success();
+      },
+      () => copyCmd(text, success, fail, $)
+    );
+  }
+}
 // export function paste(e,success,fail) {
 //   e=$_(e);
 //   if (!navigator.clipboard) pasteCmd(e);

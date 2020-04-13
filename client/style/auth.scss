@@ -124,3 +124,18 @@ form {
     }
   }
 }
+
+.checkout-success {
+  background-color: white;
+  width: 95%;
+  padding: 15px 2%;
+  max-width: 400px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  img {
+    max-width: 150px;
+  }
+}

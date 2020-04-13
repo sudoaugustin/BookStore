@@ -20,7 +20,10 @@ $(document).ready(function () {
       _data: {
         device: getOS(),
       },
-      callback: ({ remember: temp, token }) => setToken({ token, temp }),
+      callback: ({ remember: temp, token }) => {
+        setToken({ token, temp });
+        redirectLogged();
+      },
     })
   );
 });

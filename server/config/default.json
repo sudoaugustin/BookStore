@@ -1,5 +1,5 @@
 {
-  "mongodbURL": "mongodb://localhost:27017/bookstore",
+  "mongodbURL": "mongodb+srv://booky:wit2020taxiwala@cluster0-uvqyk.mongodb.net/test?retryWrites=true&w=majority",
   "mail": {
     "user": "academey2020@gmail.com",
     "pass": "wit2020taxiwala"
